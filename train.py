@@ -75,9 +75,10 @@ def main() -> None:
     model.fit(x_train, y_train)
 
     predictions = model.predict(x_test)
+    mse = mean_squared_error(y_test, predictions)
     metrics = {
         "mae": mean_absolute_error(y_test, predictions),
-        "rmse": mean_squared_error(y_test, predictions, squared=False),
+        "rmse": float(np.sqrt(mse)),
         "r2": r2_score(y_test, predictions),
     }
 

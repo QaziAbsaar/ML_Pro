@@ -98,4 +98,4 @@ with gr.Blocks() as demo:
 
 
 if __name__ == "__main__":
-    demo.launch(theme=gr.themes.Soft(), title="NYC Taxi Fare Prediction")
+    demo.launch(theme=gr.themes.Soft())

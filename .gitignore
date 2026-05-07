@@ -1,5 +1,43 @@
+# Data and model artifacts
 artifacts/
+data/
+*.joblib
+*.pkl
+*.pickle
+
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Jupyter
 .ipynb_checkpoints/
-*.pyc
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.venv
+env/
+venv/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+
+# Logs
+*.log
