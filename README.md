@@ -333,3 +333,40 @@ Use this folder as a Gradio Space and upload:
 - The model uses feature engineering for pickup time and trip distance.
 - The implementation follows the assignment requirement by using an ANN rather than tree-based models.
 - Because the dataset can be large and noisy, the training script includes cleaning and optional sampling.
+
+## Hugging Face Git configuration (alternative push methods)
+
+If you prefer to push directly to your Hugging Face Space (instead of connecting GitHub), you can use one of the two methods below.
+
+1) Create the Space on Hugging Face first (choose **Gradio** as the SDK). Then push via the Hugging Face remote:
+
+```bash
+# Install the HF CLI (once)
+pip install huggingface-hub
+
+# Log in and paste your token from https://huggingface.co/settings/tokens
+huggingface-cli login
+
+# Add a new remote that points to your Space (replace USERNAME and SPACE_NAME)
+git remote add huggingface https://huggingface.co/spaces/USERNAME/SPACE_NAME
+
+# Push your repository to the Space
+git push huggingface main --force
+```
+
+2) Manual upload via the Space UI (if you prefer a GUI):
+
+- Create a new Space at https://huggingface.co/spaces and choose **Gradio** as the SDK.
+- Open the Space, go to the **Files** tab and upload these files/folders:
+   - `app.py`
+   - `taxi_fare.py`
+   - `requirements.txt`
+   - `artifacts/taxi_fare_ann_model.joblib`
+   - any other helper scripts you want included
+
+Notes & tips:
+- Make sure `app.py` is at the repository root (Hugging Face runs it by default).
+- If you use the Git remote method, the Space will rebuild automatically on each push.
+- If your model is large, consider hosting it in the Hub or downloading at startup to keep repo size smaller.
+
+If you'd like, I can add a ready-to-use `push_to_hf.sh` helper script to automate the login + remote add + push steps — tell me if you want that and I'll create it and commit it for you.
