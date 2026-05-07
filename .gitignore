@@ -1,5 +1,5 @@
 # Data and model artifacts
-artifacts/
+a
 data/
 *.joblib
 *.pkl

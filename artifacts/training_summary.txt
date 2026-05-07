@@ -1,0 +1,7 @@
+feature_columns: ['passenger_count', 'pickup_hour', 'pickup_day_of_week', 'pickup_month', 'pickup_year', 'is_weekend', 'trip_distance_km', 'abs_lat_diff', 'abs_lon_diff']
+rows_before_cleaning: 50000
+rows_after_cleaning: 50000
+rows_dropped: 0
+mae: 1.2262
+rmse: 1.5372
+r2: 0.9605
