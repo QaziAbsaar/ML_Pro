@@ -1,7 +1,5 @@
 # Data and model artifacts
-a
 data/
-*.joblib
 *.pkl
 *.pickle
 
