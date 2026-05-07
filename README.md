@@ -212,6 +212,26 @@ Typical performance metrics on test set:
 - All dependencies must be in `requirements.txt`
 - The model file `taxi_fare_ann_model.joblib` should be committed to the repository
 
+### Windows / PowerShell Deployment
+
+If you are deploying from PowerShell, set the Hugging Face variables with:
+
+```powershell
+$env:HF_USERNAME = 'your_hf_username'
+$env:HF_SPACE = 'your_space_name'
+$env:HF_TOKEN = 'your_hf_token'
+```
+
+Then run:
+
+```powershell
+.\push_to_hf.ps1
+```
+
+This helper uploads the current workspace directly to your Hugging Face Space, which avoids the binary-file rejection from Git pushes.
+
+If you prefer Bash, use `push_to_hf.sh` from Git Bash, WSL, or another Unix-like shell only if you are managing the Space through Git.
+
 ## Scripts Overview
 
 | Script | Purpose |

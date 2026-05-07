@@ -18,6 +18,24 @@ This guide explains how to deploy the NYC Taxi Fare Prediction model to Hugging 
 
 ## Deployment Steps
 
+### Windows / PowerShell Setup
+
+If you are in PowerShell, set environment variables like this:
+
+```powershell
+$env:HF_USERNAME = 'your_hf_username'
+$env:HF_SPACE = 'your_space_name'
+$env:HF_TOKEN = 'your_hf_token'
+```
+
+Then run the PowerShell helper:
+
+```powershell
+.\push_to_hf.ps1
+```
+
+This helper uploads the Space directly through the Hugging Face Hub API, so the binary model file is handled correctly.
+
 ### Step 1: Prepare Your Repository
 
 Ensure your GitHub repository contains:
@@ -33,12 +51,18 @@ Ensure your GitHub repository contains:
 └── README.md                       ✓ Documentation
 ```
 
-**Commit and push to GitHub:**
+**Commit and push to GitHub or upload directly with the helper:**
 
 ```bash
 git add .
 git commit -m "Prepare for Hugging Face deployment"
 git push origin main
+```
+
+Or, from PowerShell, upload the current workspace directly:
+
+```powershell
+.\push_to_hf.ps1
 ```
 
 ### Step 2: Create Hugging Face Space
@@ -152,7 +176,7 @@ When you update the repository:
 
 ### What Triggers Redeployment
 
-- Push to connected branch (default: `main`)
+- Upload via the helper script
 - Update `app.py`
 - Update `requirements.txt`
 - Update model file `artifacts/taxi_fare_ann_model.joblib`
